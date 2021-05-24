@@ -1,0 +1,115 @@
+    body{
+        font-family: "Trebuchet MS", sans-serif;
+        margin: 50px;
+    }
+        :root {
+        --hc:linear-gradient(to bottom, rgb(110, 125, 255), rgb(201, 250, 247), rgb(110, 125, 255));
+        --bg :linear-gradient(to right, #fec, white, #fec);
+    }
+
+
+    nav{
+        font-size: 20px;
+        font-weight: 500;
+        background: var(--hc);
+        height: 50px;
+        
+    }   
+
+    nav a{
+        float: left;
+        margin-left: 10px; 
+    } 
+
+    nav a:hover{
+        font-weight: 800; 
+    } 
+
+    button{
+         background: var(--hc);
+         color: black;
+    }
+    
+    button a{
+        color: black;
+    }
+
+    .operation{
+        margin: 5px;
+    }
+    
+    .container{
+        display: flex;
+        flex-direction:row;
+        border-radius: 5px;
+        border: 2px solid blue;
+        width: 50%;
+        margin-left: 5px;
+        padding: 10px;
+        background-color: #CAF4F4;
+        justify-content:center;
+        align-items:center;
+    }
+    
+    
+    .container1{
+        display: flex;
+        flex-direction:row;
+        width: 70%;
+        border-radius: 5px;
+        border: 2px solid blue;
+        margin-left: 5px;
+        padding: 10px;
+        background-color: #CAF4F4;
+        justify-content:space-around;
+        align-items:center;
+        
+
+    }
+    
+    .tbl {
+      border: 1px;
+      border-collapse: collapse;
+      border-width: thick;
+      border-color: blue;
+      margin: 20px;
+    }
+      td, th{
+          text-align: center; 
+          vertical-align: middle;
+          padding: 5px;
+          width: 70%;
+      }
+      
+      .contact{
+          display: flex;
+          flex-direction: row;
+      }
+      
+           
+    .footer{
+        background: lightskyblue;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        width: 96%;
+        bottom:  0;
+        left: 10px;
+    }
+    
+    .footer p{
+       margin: 20px;
+      
+    }
+
+    .trash{
+       
+        color:  red;
+    }
+  
+
+   form .error{
+        color: red;
+    }
