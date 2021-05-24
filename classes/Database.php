@@ -13,7 +13,10 @@ class Database {
         $this->conn = mysqli_connect('localhost', 'root', '', 'adressebuch')
          or die ("Die Verbindung zur Datenbank war nicht erfolgreich !");
     }
-    
+    /**
+     * read the user inputs and save them in the database
+     * @param Array $arry $arry the values of user inputs would like to add them to database
+     */
     public function einfugen($arry) {
         
        try {
@@ -42,9 +45,9 @@ class Database {
         
     }
     /**
-     * change one row of dat in save them in database
-     * @param type $arry the values of user inputs
-     * @param type $id change the data that have id =$id
+     * change one record of data and save them in database
+     * @param Array $arry the values of user inputs would like to change them
+     * @param nummber $id change the data that have id =$id
      */
     public function aendern($arry, $id ) {
         
@@ -83,9 +86,9 @@ class Database {
         
     }
     /**
-     * 
-     * @param type $id
-     * @return string
+     * delete one record of data from database
+     * @param number $id delete the data that have id =$id
+     * @return string success or fail message
      */
     public function loeschen($id) {
         $query = "DELETE FROM contacts WHERE id =$id";  
@@ -96,7 +99,10 @@ class Database {
         }        
         $this->close();
     }
-    
+    /**
+     * Sorting the data table depend on the user selection
+     * @return sql statement with the selected criteria 
+     */
     public function sorting() {
         $selected = 'vorname';
         if(isset($_POST['sort1'])){
@@ -104,11 +110,17 @@ class Database {
           }
        return "SELECT * FROM contacts ORDER BY " .$selected;
        }     
-   
+   /**
+    * recieve an SQL statement $query and execute it
+    * @param SQL statement $query that would like to execute
+    * @return array of the result after executing the query
+    */
     public function execQuery($query) {
         return  $result= mysqli_query($this->conn, $query);           
     }
-    
+    /**
+     * close the connection with database
+     */
     public function close() {
         mysqli_close($this->conn);
     }
