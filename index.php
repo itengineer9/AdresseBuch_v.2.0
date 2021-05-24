@@ -73,11 +73,13 @@
                 data-placement = "bottom" title="Ändern" data-toggle="tooltip">
                  <i class="fa fa-edit" aria-hidden="true"></i></a>
          </td>                              
-
-
-          <td><a href="loeschen.php?id=<?php echo $row['id'];?>" 
-                data-placement = "bottom" title="Löschen" data-toggle="tooltip">
-                 <i class="fa fa-trash trash" ></i></a>
+          
+          <td><button                 
+                 id="delet"
+                 value="<?php echo $row['id'];?>"
+                 data-target="#deleteModal"
+                  data-toggle="modal">
+                 <i class="fa fa-trash trash" ></i></button>
           </td>
          
        </tr>
@@ -91,7 +93,11 @@
      </table>
 </form>
 
+
  <?php
- 
- require 'footer.php';
-        
+    include 'modal.php';
+    require 'footer.php';
+  ?>
+
+<script src="js/delete.js"></script>
+
