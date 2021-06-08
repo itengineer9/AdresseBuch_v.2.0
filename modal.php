@@ -1,4 +1,8 @@
-
+<?php 
+    if(isset($_GET['id'])){
+        $idd= $_GET['id'];
+    }
+?>
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -12,7 +16,7 @@
 
         <div class="modal-body">
           <h4>Möchtst Du wircklich Datensatz löschen?!</h4>            
-          <input id="idd" name="idd" type="hidden" value="" >        
+          <input id="idd" name="idd" type="hidden" value="<?=$idd;?>" >        
         </div>
 
         <div class="modal-footer">

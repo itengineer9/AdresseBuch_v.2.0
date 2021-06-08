@@ -30,7 +30,7 @@
  </div>
 
 <!-- Disply Kontakte in einer Tabelle -->
-<form class="form" action="<?php echo htmlspecialchars($_SESSION['PHP_SELF']) ?>" method="POST">
+<form class="form" action="#" method="POST">
 
 <table class="tbl" border="1">
     
@@ -57,29 +57,27 @@
         }
         
         while ($row = mysqli_fetch_assoc($result)) {
-        $idw = $row ['id'];
+            $idw = $row ['id'];
    
     ?>
      <tr>   
-         <td ><?php echo $row['vorname'].' '. $row['nachname'];?></td>
-         <td><?php echo $row['email'];?></td>
-         <td><?php echo $row['phone'];?></td>
-         <td><?php echo $row['strasse'];?></td>
-         <td><?php echo $row['hausnummer'];?></td>
-         <td><?php echo $row['ort'];?></td>
-         <td><?php echo $row['plz'];?></td>
+         <td ><?= $row['vorname'].' '. $row['nachname'];?></td>
+         <td><?= $row['email'];?></td>
+         <td><?= $row['phone'];?></td>
+         <td><?= $row['strasse'];?></td>
+         <td><?= $row['hausnummer'];?></td>
+         <td><?= $row['ort'];?></td>
+         <td><?= $row['plz'];?></td>
 
-         <td><a href="aendern.php?id=<?php echo $row['id'];?>" 
+         <td><a href="aendern.php?id=<?= $row['id'];?>" 
                 data-placement = "bottom" title="Ändern" data-toggle="tooltip">
                  <i class="fa fa-edit" aria-hidden="true"></i></a>
          </td>                              
+                             
           
-          <td><button                 
-                 id="delet"
-                 value="<?php echo $row['id'];?>"
-                 data-target="#deleteModal"
-                  data-toggle="modal">
-                 <i class="fa fa-trash trash" ></i></button>
+         <td><button  name="submit" class="delet"
+                 data-id="<?= $row['id'];?>"
+                 >DEL</button>
           </td>
          
        </tr>
@@ -94,10 +92,17 @@
 </form>
 
 
+
  <?php
     include 'modal.php';
     require 'footer.php';
-  ?>
+ ?>
 
-<script src="js/delete.js"></script>
-
+<script>
+    $('.delet').click(function (e) {
+        e.preventDefault();
+        var id = $(this).attr('data-id');
+        $('#idd').val(id);  
+        $('#deleteModal').modal('show');
+    });
+</script>
